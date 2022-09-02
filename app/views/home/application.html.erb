@@ -1,0 +1,81 @@
+<% if session[:locale] == "en" %>
+  <% title( @msg.title_en ) %>
+<% elsif session[:locale] == "zh-TW" %>
+  <% title( @msg.title    ) %>
+<% end %>
+
+<%= content_for  :css do %>
+
+    <link rel="stylesheet" href="css/product-in.css">
+<% end  %>
+
+
+
+
+
+<%=render '/home/comm/top'%>
+
+
+
+<div class="mainArea">
+    <div class="container">
+        <div class="titleBox">
+            <h2 class="title">
+                <% if session[:locale] == "en" %>
+                  <%=   @msg.title_en%>
+                <% elsif session[:locale] == "zh-TW" %>
+                  <%=   @msg.title%>
+                <% end %>
+            </h2>
+        </div>
+        <div class="row flex-row-reverse">
+
+
+            <div class="col-lg-9">
+                <!-- Content -->
+                <section id="content">
+
+                    <% if session[:locale] == "en" %>
+                      <%= raw @msg.content_en%>
+                    <% elsif session[:locale] == "zh-TW" %>
+                      <%= raw @msg.content%>
+                    <% end %>
+
+                </section>
+            </div>
+
+
+            <!-- 次選單 -->
+            <div class="col-lg-3 nopadding" >
+                <!-- Sidebar -->
+                <section id="sidebar">
+                    <h3>
+                        <% if session[:locale] == "en" %>
+                          <%= raw @msg.cate.name_en %>
+                        <% elsif session[:locale] == "zh-TW" %>
+                          <%= raw @msg.cate.name %>
+                        <% end %>
+                    </h3>
+                <ul class="proList">
+                <% Msg.where(:cate_id => @msg.cate_id).each do |ann|%>
+                  <li> 
+                      <a href="/application?id=<%=ann.id%>"  class="proItem">
+                            <% if session[:locale] == "en" %>
+                              <%=   ann.title_en%>
+                            <% elsif session[:locale] == "zh-TW" %>
+                              <%=   ann.title%>
+                            <% end %>
+                      </a>
+                  </li>
+                <% end %>
+                </ul>
+                </section>
+            </div>
+            <!-- 次選單 end -->
+
+
+
+
+        </div>
+    </div>
+</div>

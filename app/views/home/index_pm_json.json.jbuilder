@@ -1,0 +1,1 @@
+json.array! @footers, partial: 'home/footer', as: :footer

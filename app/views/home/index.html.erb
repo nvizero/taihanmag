@@ -1,0 +1,167 @@
+
+<!-- header END -->
+<div class="header1 mbr-parallax-background">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-md-6 flex-center">
+                <img src="images/banner_t1.png" width="80%" alt="">
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="images/banner_img.png" width="80%" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mainBox">
+    <!-- 產品分類區 -->
+    <section class="products">
+        <div id="co_abc">
+
+        </div>
+        <div class="container">
+            <div class="titleBox">
+                <h2 class="title"><%=t('menu.Permanent Magnet')%></h2>
+            </div>
+            <div class="row ProBox">
+                <% @annos.each do |anno| %>
+                <div class="col-md-3 col-sm-6 ProItem">
+                    <a href="/anno?id=<%=anno.id%>">
+                        <div class="Img">
+                            <%=image_tag anno.img.url ,{:style=>"width:100%;"}  if !anno.img.nil? %>
+
+                        </div>
+                         <div class="Txt" >
+                            <h3>
+                                <% if session[:locale] == "en" %>
+                                    <%=anno.title_en%>
+                                <% elsif session[:locale] == "zh-TW" %>
+                                    <%=anno.title%>
+                                <% end %>
+                            </h3>
+                        </div>
+                    </a>
+                </div>
+                <% end %>
+
+
+                <% @cates.each do |cate| %>
+                <div class="col-md-3 col-sm-6 ProItem">
+                    <a href="/application_sub?id=<%=cate.id%>">
+                        <div class="Img">
+                            <%=image_tag cate.img.url ,{:style=>"width:100%;"}  if !cate.img.nil? %>
+
+                        </div>
+                         <div class="Txt">
+                            <h3>
+				
+                                <% if session[:locale] == "en" %>
+                                    <%=cate.name_en%>
+                                <% elsif session[:locale] == "zh-TW" %>
+                                    <%=cate.name%>
+                                <% end %>
+                            </h3>
+                        </div>
+                    </a>
+                </div>
+                <% end %>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- 產品分類區 ＥＮＤ-->
+
+    <!-- 最新消息 -->
+    <section class="newsBox" style="display:none" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 ">
+                    <div class="ImgBox" style="background-image: url(images/news/news_img.jpg); width: 100%; height: 100%; background-position: center;background-size: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="titleBox2">
+                        <h2 class="title">News</h2>
+                    </div>
+                    <div class="NewsList">
+                        <div class="NewsItem">
+                            <a href="#">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="Img" style="background-image: url(images/news/news_01.png);"></div>
+                                    </div>
+                                    <div class="Txt col-md-8">
+                                        <h4>Public urged not to consume a kind of breakfast cereal</h4>
+                                        <p>The Centre for Food Safety (CFS) of the Food and Environmental Hygiene Department today (October 25) urged the public not to consume a kind of breakfast</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="NewsItem">
+                            <a href="#">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="Img" style="background-image: url(images/news/news_02.png);"></div>
+                                    </div>
+                                    <div class="Txt col-md-8">
+                                        <h4>Coles and Woolworths bread under recall after metal</h4>
+                                        <p>More than a dozen types of bread products sold at Coles, Woolworths and many other stores, have been recalled after small metal pieces were found</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="NewsItem">
+                            <a href="#">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="Img" style="background-image: url(images/news/news_03.png);"></div>
+                                    </div>
+                                    <div class="Txt col-md-8">
+                                        <h4>The saury canned metal pieces found inside, Japanese c</h4>
+                                        <p>[Central News Agency] Japanese food factory Maruha Nichiro announced today that it has decided to recycle three kinds of 27.79 million canned products b</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 最新消息ＥＮＤ -->
+    <!-- 關於我們 -->
+    <section class="aboutBox" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <% if session[:locale] == "en" %>
+                        <%=raw @buttom_left.content_en.html_safe %>
+                    <% elsif session[:locale] == "zh-TW" %>
+                        <%=raw @buttom_left.content_ch.html_safe %>
+                    <% end %>
+
+                </div>
+                <div class="col-md-6">
+                    <% if session[:locale] == "en" %>
+                        <%=raw @buttom_right.content_en.html_safe %>
+                    <% elsif session[:locale] == "zh-TW" %>
+                        <%=raw @buttom_right.content_ch.html_safe %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 關於我們ＥＮＤ -->
+</div>
+
+<style type="text/css">
+    a: hover {
+        text-decoration: none!important;
+     
+   
+       
+        background-color: yellow;
+	}
+</style>

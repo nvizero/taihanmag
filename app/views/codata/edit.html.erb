@@ -1,0 +1,10 @@
+<% if @notice %>
+  	<div class="alert alert-success" role="alert">
+  		<%= @notice %>
+	</div>
+<% end %>
+
+<%= render 'form', codatum: @codatum %>
+
+<% link_to 'Show', @codatum %> 
+<% link_to 'Back', codata_path %>

@@ -1,0 +1,35 @@
+
+
+<link rel="stylesheet" href="css/about.css">
+
+<div class="header1 cid-r33fHMbSeh mbr-parallax-background">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-6 flex-center">
+                <img src="images/banner_t2.png" width="80%" alt="">
+            </div>
+            <div class="col-md-6 text-center">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- mainArea -->
+<div class="mainArea">
+    <div class="container">
+        <section>
+            <div class="row">
+                <div class="col-md-12 ">
+                    
+                    <% if session[:locale] == "en" %>  
+                        <%= raw @about.content_en%>
+                    <% elsif session[:locale] == "zh-TW" %>
+                        <%= raw @about.content_ch%>
+                    <% end %>
+                </div>         
+            </div>
+        </div>
+    </section>
+     
+</div>
+         

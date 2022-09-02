@@ -1,0 +1,80 @@
+ 
+
+<%= form_for(announce) do |f| %>
+  <% if announce.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(announce.errors.count, "error") %> prohibited this announce from being saved:</h2>
+
+      <ul>
+      <% announce.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title,"中文標題" %>
+    <%= f.text_field :title , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title_en ,"英文標題" %>
+    <%= f.text_field :title_en , class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title_en ,"首頁是否顯示" %>
+    <%= f.check_box :flag %>
+  </div>
+   
+
+  
+
+  <div class="form-group">
+    <%= f.label :img,  "圖片" %><br>
+    <%= f.file_field :img %>
+    <% if f.object.img? %>
+      <%= image_tag f.object.img.url %>      
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :sort , "排序" %>
+    <%= f.text_field :sort , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content ,"中文內文" %>
+    <%= f.text_area :content ,id: "ckeditor", class: "tinymce" %>
+    
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content_en ,"英文內文"%>
+    <%= f.cktext_area :content_en ,id: "ckeditor1", class: "tinymce" %>
+    
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-lg btn-primary" type="submit">確定</button>
+  </div>
+<% end %>
+
+
+<script>
+   tinymce.init({
+     selector: '.tinymce',
+     height: 500,
+     menubar: true,
+     plugins: [
+       'advlist autolink lists link image charmap print preview anchor',
+       'searchreplace visualblocks code fullscreen',
+       'insertdatetime media table paste code help wordcount'
+     ],
+       toolbar: 'undo redo | formatselect | ' +
+       ' bold italic backcolor | alignleft aligncenter ' +
+       ' alignright alignjustify | bullist numlist outdent indent |' +
+       ' removeformat | help'
+   });
+ </script>

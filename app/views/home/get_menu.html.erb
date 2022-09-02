@@ -1,0 +1,59 @@
+<header id="demo">
+	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" id="nccc">
+		<div class="container-fluid">
+			<div class="menu-logo">
+				<!-- menu-logo -->
+				<div class="navbar-brand">
+					<!-- navbar-brand -->
+					<span class="navbar-logo">
+						<a href="/">
+							<img src="images/logo.png" style="height: 2.8rem;">
+						</a>
+					</span>
+				</div>
+				<!-- navbar-brand end-->
+			</div>
+			<!-- menu-logo end-->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+			       <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+				<ul class="navbar-nav">
+					<li class="nav-item " style="width: auto;">
+						<a class="nav-link" href="/annos"><%=t('menu.Permanent Magnet')%></a>
+					</li>
+					<li class="nav-item ">
+						<a class="nav-link" href="/application_main"><%=t('menu.Application')%></a>
+					</li>
+					<li class="nav-item ">
+						<a class="nav-link" href="/glossary"><%=t('menu.Glossary')%></a>
+					</li>
+					<li class="nav-item ">
+						<a class="nav-link" href="/contact"><%=t('menu.Contact Us')%></a>
+					</li>
+					<li class="nav-item ">
+						<a class="nav-link" href="/company"><%=t('menu.Company')%></a>
+					</li>
+
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Language
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<%= link_to "English", {:controller => "home", :action => 'index', :locale => "en" }, :class=>"dropdown-item" %>
+                            <%= link_to "繁體中文", {:controller =>  "home", :action => 'index', :locale => "zh-TW"} , :class=>"dropdown-item" %>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+
+<style>
+	.dropdown:hover {
+    	/*background-color: yellow;*/
+	}
+	.dropdown:hover .dropdown-menu {
+	  display: block;
+	}
+</style>

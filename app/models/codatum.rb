@@ -1,0 +1,2 @@
+class Codatum < ApplicationRecord
+end

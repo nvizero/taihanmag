@@ -1,0 +1,2 @@
+module CodataHelper
+end

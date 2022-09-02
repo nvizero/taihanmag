@@ -1,0 +1,32 @@
+<% if !flash[:notice].blank? %>
+
+      <% flash[:notice] %>
+
+<% end %>
+
+<br />
+
+<br />
+
+<table class = "table table-bordered table-striped">
+   <thead>
+      <tr>
+         <th>名稱</th>
+         <th>下載結鏈</th>
+         <th><%= link_to "上傳檔案", new_resume_path, {:style=>'color:#FFFFFF;', :class => "btn btn-primary"}  %> </th>
+      </tr>
+   </thead>
+
+   <tbody>
+      <% @resumes.each do |resume| %>
+
+         <tr>
+            <td><%= resume.name %></td>
+            <td><%= link_to "下載", resume.attachment_url %></td>
+            <td><%= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td>
+         </tr>
+
+      <% end %>
+   </tbody>
+
+</table>
